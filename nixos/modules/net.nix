@@ -1,0 +1,3 @@
+{
+  networking.networkmamager.enable = true;
+}
