@@ -1,7 +1,7 @@
 { pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
-  enviroment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     fastfetch
   ];
 }
