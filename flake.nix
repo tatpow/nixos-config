@@ -17,7 +17,7 @@
       # Build configuration.nix
       nixosConfigurations.ZB-UX391F = nixpkgs.lib.nixosSystem {
 
-        inherit inputs system;
+        inherit system;
 
         modules = [
           ./nixos/configuration.nix
