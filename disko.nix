@@ -7,8 +7,9 @@
         content = {
           type = "gpt";
           partitions = {
+
             ESP = {
-              type = "partition";
+              type = "EF00";
               size = "256M";
               content = {
                 type = "filesystem";
@@ -16,6 +17,7 @@
                 mountpoint = "/boot";
               };
             };
+
             swap = {
               size = "8G";
               content = {
@@ -23,15 +25,17 @@
                 resumeDevice = true;
               };
             };
+
             root = {
               size = "100%";
               content = {
                 type = "filesystem";
                 format = "btrfs";
                 mountpoint = "/";
-                extraArgs = [ "-L" "nixos" ];
+                extraArgs = [ "-L" "NIXOS" ];
               };
             };
+
           };
         };
       };
