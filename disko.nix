@@ -30,7 +30,7 @@
               size = "100%";
               content = {
                 type = "filesystem";
-                format = "btrfs";
+                format = "ext4";
                 mountpoint = "/";
                 extraArgs = [ "-L" "NIXOS" ];
               };
