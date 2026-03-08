@@ -2,6 +2,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    fastfetch
+    # All moved to ../home-manager/home-packages.nix
   ];
 }
