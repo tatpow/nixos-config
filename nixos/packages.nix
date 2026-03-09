@@ -3,10 +3,9 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
-    
-    pciutils      # lspci
-    usbutils      # lsusb
-    inetutils     # ping, hostname
+    pciutils
+    usbutils
+    inetutils
     git
   ];
 }

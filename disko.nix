@@ -3,11 +3,10 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme0n1"; # Rename to your disk name (lsblk)
+        device = "/dev/nvme0n1";  # Change to your disk name (use lsblk to find it)
         content = {
           type = "gpt";
           partitions = {
-
             ESP = {
               type = "EF00";
               size = "256M";
@@ -35,7 +34,6 @@
                 extraArgs = [ "-L" "NIXOS" ];
               };
             };
-
           };
         };
       };

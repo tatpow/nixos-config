@@ -1,5 +1,4 @@
 {
-  # Auto Garbage Colleting
   nix.gc = {
     automatic = true;
     dates = "weekly";

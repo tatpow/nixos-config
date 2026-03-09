@@ -6,7 +6,6 @@
     jetbrains-mono
     noto-fonts
     noto-fonts-lgc-plus
-    texlivePackages.hebrew-fonts
     noto-fonts-emoji
     font-awesome
     powerline-fonts
@@ -19,9 +18,7 @@
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
-    targets = {
-
-    };
+    targets = { };
 
     cursor = {
       name = "DMZ-Black";

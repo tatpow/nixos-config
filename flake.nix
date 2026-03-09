@@ -1,6 +1,5 @@
 {
-
-  description = "My own configuration";
+  description = "My own NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
@@ -19,18 +18,15 @@
       url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = { self, nixpkgs, disko, home-manager, stylix, ... }@inputs:
-
     let
       system = "x86_64-linux";
-    in {
-
+    in
+    {
       nixosConfigurations.ZB-UX391F = nixpkgs.lib.nixosSystem {
-
-        system = system;
+        inherit system;
 
         specialArgs = {
           inherit inputs;
@@ -44,16 +40,15 @@
       };
 
       homeConfigurations.tatpow = home-manager.lib.homeManagerConfiguration {
-
         pkgs = nixpkgs.legacyPackages.${system};
 
         extraSpecialArgs = {
           inherit inputs;
         };
 
-        modules = [ ./home-manager/home.nix ];
-
+        modules = [
+          ./home-manager/home.nix
+        ];
       };
     };
-
 }
