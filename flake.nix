@@ -32,8 +32,8 @@
 
         system = system;
 
-        specialArgs = { 
-          inherit inputs; 
+        specialArgs = {
+          inherit inputs;
         };
 
         modules = [
@@ -48,7 +48,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
 
         extraSpecialArgs = {
-          inherit inputs ;
+          inherit inputs;
         };
 
         modules = [ ./home-manager/home.nix ];

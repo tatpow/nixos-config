@@ -1,8 +1,6 @@
 # nixos-config
 ❄️ My own NixOS Config
 
-# TODO: update readme
-
 # just some commands for install:
 
 1. `sudo -i`
@@ -16,9 +14,16 @@
     3. Always check disks by `lsblk`
 
 6. `nixos-install --flake .#ZB-UX391F`
-7. `nixos-enter --root /mnt -c 'passwd tatpow` - Change to yours
+7. `nixos-enter --root /mnt -c 'passwd tatpow' ` - Change to yours
 8. `reboot`
+9. After reboot, login and apply Home Manager:
+   ```bash
+   # If home-manager command exists:
+   home-manager switch --flake .#tatpow
 
+   # If not found, use nix run:
+   nix run home-manager -- switch --flake .#tatpow
+   ```
 
 # JUST FOR MY LAPTOP:
 Before startup full-clean install:
