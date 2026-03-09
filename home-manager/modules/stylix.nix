@@ -58,7 +58,7 @@
     };
 
     image = pkgs.fetchurl {
-      url = "https://codeberg.org/lunik1/nixos-logo-gruvbox-wallpaper/raw/branch/master/png/gruvbox-dark-rainbow.png";
+      url = "https://raw.githubusercontent.com/dracula/wallpaper/refs/heads/master/first-collection/nixos.png";
       sha256 = "hJBs+1MYSAqxb9+ENP0AsHdUrvjTzjobGv57dx5pPGE=";
     };
   };
