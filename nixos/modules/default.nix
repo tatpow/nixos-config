@@ -8,5 +8,7 @@
     ./nix.nix
     ./timezone.nix
     ./user.nix
+    ./env.nix
+    ./hyprland.nix
   ];
 }

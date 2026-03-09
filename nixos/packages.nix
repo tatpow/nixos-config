@@ -7,5 +7,6 @@
     usbutils
     inetutils
     git
+    micro
   ];
 }

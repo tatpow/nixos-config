@@ -18,7 +18,7 @@
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
-    targets = { };
+    # targets = { };
 
     cursor = {
       name = "DMZ-Black";
