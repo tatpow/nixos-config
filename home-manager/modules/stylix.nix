@@ -10,7 +10,7 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   stylix = {
