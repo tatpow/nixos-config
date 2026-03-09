@@ -6,10 +6,8 @@
 
       font = {
         normal = {
-          family = "JetBrains Mono";
-          style = "Bold";
+          style = lib.mkForce "Bold";
         };
-        size = 13.0;
       };
     };
   };
