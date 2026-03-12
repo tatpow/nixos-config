@@ -5,10 +5,7 @@
 ## Quick Start
 
 ```bash
-# Build and switch to configuration
 sudo nixos-rebuild switch --flake .#ZB-UX391F
-
-# Apply Home Manager configuration
 home-manager switch --flake .#tatpow
 ```
 
@@ -48,115 +45,45 @@ nixos-config/
 ### 2. Connect to Internet
 ```bash
 sudo -i
-nmtui  # For WiFi
+nmtui
 ```
 
-### 3. Clone Configuration
+### 3. Enable Flakes
+```bash
+mkdir -p /etc/nix
+echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+```
+
+### 4. Clone Configuration
 ```bash
 git clone https://github.com/tatpow/nixos-config.git
 cd nixos-config
 ```
 
-### 4. Partition Disks (Disko)
+### 5. Partition Disks (Disko)
 ```bash
-# Check disk name first!
-lsblk
-
-# IMPORTANT: Update disko.nix with your disk device
+lsblk  # Check disk name first!
 nix run github:nix-community/disko -- --mode zap_create_mount ./disko.nix
 ```
 
-### 5. Install NixOS
+### 6. Install NixOS
 ```bash
 nixos-install --flake .#ZB-UX391F
 ```
 
-### 6. Set Password
+### 7. Set Password
 ```bash
 nixos-enter --root /mnt -c 'passwd tatpow'
 ```
 
-### 7. Reboot
+### 8. Reboot
 ```bash
 reboot
 ```
 
-### 8. Apply Home Manager
+### 9. Apply Home Manager
 ```bash
 home-manager switch --flake .#tatpow
-```
-
-## Git Commands
-
-### Clone
-```bash
-git clone https://github.com/tatpow/nixos-config.git
-cd nixos-config
-```
-
-### Pull Latest Changes
-```bash
-git pull
-```
-
-### Commit and Push Changes
-```bash
-git add .
-git commit -m "description"
-git push
-```
-
-### Check Status
-```bash
-git status
-git log --oneline
-```
-
-## Update System
-
-```bash
-# Pull latest changes
-git pull
-
-# Rebuild NixOS
-sudo nixos-rebuild switch --flake .#ZB-UX391F
-
-# Update Home Manager
-home-manager switch --flake .#tatpow
-```
-
-## Update Flake Inputs
-
-```bash
-# Update all inputs
-nix flake update
-
-# Update specific input
-nix flake update nixpkgs
-nix flake update stylix
-```
-
-## Rollback
-
-```bash
-# Rollback to previous generation
-sudo nixos-rebuild switch --rollback
-
-# List generations
-nixos-rebuild list-generations
-
-# Switch to specific generation
-sudo nix-env --switch-generation 1
-sudo nixos-rebuild switch
-```
-
-## Garbage Collection
-
-```bash
-# Manual GC (remove old generations)
-sudo nix-collect-garbage -d
-
-# Auto GC is configured (weekly, 30 days)
 ```
 
 ## Features
@@ -214,7 +141,6 @@ rfkill unblock all
 ### Disko Fails
 ```bash
 lsblk  # Check disk name
-# Update disko.nix device path
 ```
 
 ### Home Manager Not Found
@@ -224,50 +150,8 @@ nix run home-manager -- switch --flake .#tatpow
 
 ### Hyprland Not Starting
 ```bash
-# Check if GDM is running
 systemctl status display-manager
-
-# Check Hyprland
 hyprland --version
-```
-
-### Black Screen After GDM
-```bash
-# Try TTY (Ctrl+Alt+F2)
-# Check logs
-journalctl -b -u display-manager
-```
-
-## Hardware Requirements
-
-- **UEFI system** (for systemd-boot)
-- **Disk**: NVMe/SSD (update `disko.nix` device path)
-- **GPU**: Intel i915 supported (PSR disabled)
-- **RAM**: 8GB+ recommended
-
-## Post-Installation
-
-### Verify Installation
-```bash
-hostname        # ZB-UX391F
-whoami          # tatpow
-lsblk           # Check partitions
-fastfetch       # System info
-```
-
-### Test Components
-```bash
-# Terminal
-alacritty
-
-# Editor
-micro
-
-# Lock screen
-hyprlock
-
-# App launcher
-wofi --show drun
 ```
 
 ## License
