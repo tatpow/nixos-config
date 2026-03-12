@@ -50,8 +50,7 @@ nmtui
 
 ### 3. Enable Flakes
 ```bash
-mkdir -p /etc/nix
-echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+export NIX_CONFIG="experimental-features = nix-command flakes"
 ```
 
 ### 4. Clone Configuration
