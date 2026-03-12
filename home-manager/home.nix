@@ -2,7 +2,7 @@
 
   imports = [
     ./home-packages.nix
-    ./modules/default.nix
+    ./modules
   ];
 
   home = {

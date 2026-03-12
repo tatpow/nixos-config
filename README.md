@@ -1,202 +1,273 @@
 # nixos-config
 
-❄️ My personal NixOS configuration with Home Manager, Disko, and Stylix.
+❄️ My personal NixOS configuration with Hyprland, Home Manager, Disko, and Stylix.
+
+## Quick Start
+
+```bash
+# Build and switch to configuration
+sudo nixos-rebuild switch --flake .#ZB-UX391F
+
+# Apply Home Manager configuration
+home-manager switch --flake .#tatpow
+```
 
 ## Structure
 
 ```
 nixos-config/
-├── flake.nix              # Main flake configuration
-├── disko.nix              # Disk partitioning configuration
+├── flake.nix                  # Main flake configuration
+├── disko.nix                  # Disk partitioning (Disko)
 ├── nixos/
-│   ├── configuration.nix  # Main NixOS configuration
-│   ├── packages.nix       # System-wide packages
-│   └── modules/           # NixOS modules
-│       ├── boot.nix       # Bootloader settings
-│       ├── gc.nix         # Automatic garbage collection
-│       ├── i915.nix       # Intel i915 driver settings
-│       ├── kernel.nix     # Kernel configuration
-│       ├── net.nix        # Network configuration
-│       ├── nix.nix        # Nix settings
-│       ├── timezone.nix   # Timezone configuration
-│       └── user.nix       # User configuration
+│   ├── configuration.nix      # Main NixOS configuration
+│   ├── packages.nix           # System-wide packages
+│   └── modules/
+│       ├── boot.nix           # Bootloader (systemd-boot)
+│       ├── gc.nix             # Garbage collection
+│       ├── hyprland.nix       # Hyprland + GDM
+│       ├── i915.nix           # Intel GPU settings
+│       ├── kernel.nix         # Linux kernel
+│       ├── net.nix            # NetworkManager
+│       ├── nix.nix            # Nix settings (flakes)
+│       ├── timezone.nix       # Timezone
+│       ├── user.nix           # User configuration
+│       └── env.nix            # Environment variables
 └── home-manager/
-    ├── home.nix           # Home Manager configuration
-    ├── home-packages.nix  # User packages
+    ├── home.nix               # Home Manager configuration
+    ├── home-packages.nix      # User packages
     └── modules/
-        └── stylix.nix     # Theming with Stylix
+        ├── alacritty.nix      # Terminal emulator
+        ├── hyprland.nix       # WM configuration
+        └── stylix.nix         # Theming (Dracula)
 ```
 
 ## Installation
 
-### Prerequisites
+### 1. Boot into NixOS Installer
 
-- NixOS ISO with flakes support
-- Internet connection
-- UEFI system (for systemd-boot)
-
-### Steps
-
-1. **Boot into NixOS installer**
-
-2. **Connect to the internet**
-   ```bash
-   sudo -i
-   nmtui  # For WiFi
-   # or
-   nmcli device wifi connect "SSID" password "password"
-   ```
-
-3. **Clone the configuration**
-   ```bash
-   git clone https://github.com/tatpow/nixos-config.git
-   cd nixos-config
-   ```
-
-4. **Configure disks with Disko**
-   ```bash
-   export NIX_CONFIG="experimental-features = nix-command flakes"
-   
-   # IMPORTANT: Change /dev/nvme0n1 to your disk name
-   lsblk  # Check your disk name first
-   
-   nix run github:nix-community/disko -- --mode zap_create_mount ./disko.nix
-   ```
-
-5. **Install NixOS**
-   ```bash
-   nixos-install --flake .#ZB-UX391F
-   ```
-
-6. **Set user password**
-   ```bash
-   nixos-enter --root /mnt -c 'passwd tatpow'
-   ```
-
-7. **Reboot**
-   ```bash
-   reboot
-   ```
-
-8. **Apply Home Manager configuration**
-   ```bash
-   # After logging in as tatpow:
-   
-   # Option 1: If home-manager is available
-   home-manager switch --flake .#tatpow
-   
-   # Option 2: If home-manager is not installed
-   nix run home-manager -- switch --flake .#tatpow
-   ```
-
-## Post-Installation
-
-### Verify installation
-
+### 2. Connect to Internet
 ```bash
-# Check hostname
-hostname  # Should be: ZB-UX391F
-
-# Check user
-whoami  # Should be: tatpow
-
-# Check disks
-lsblk
-
-# Check network
-nmcli connection show
-
-# Test fastfetch (after Home Manager)
-fastfetch
+sudo -i
+nmtui  # For WiFi
 ```
 
-### Update system
+### 3. Clone Configuration
+```bash
+git clone https://github.com/tatpow/nixos-config.git
+cd nixos-config
+```
+
+### 4. Partition Disks (Disko)
+```bash
+# Check disk name first!
+lsblk
+
+# IMPORTANT: Update disko.nix with your disk device
+nix run github:nix-community/disko -- --mode zap_create_mount ./disko.nix
+```
+
+### 5. Install NixOS
+```bash
+nixos-install --flake .#ZB-UX391F
+```
+
+### 6. Set Password
+```bash
+nixos-enter --root /mnt -c 'passwd tatpow'
+```
+
+### 7. Reboot
+```bash
+reboot
+```
+
+### 8. Apply Home Manager
+```bash
+home-manager switch --flake .#tatpow
+```
+
+## Git Commands
+
+### Clone
+```bash
+git clone https://github.com/tatpow/nixos-config.git
+cd nixos-config
+```
+
+### Pull Latest Changes
+```bash
+git pull
+```
+
+### Commit and Push Changes
+```bash
+git add .
+git commit -m "description"
+git push
+```
+
+### Check Status
+```bash
+git status
+git log --oneline
+```
+
+## Update System
 
 ```bash
-# Update system configuration
+# Pull latest changes
+git pull
+
+# Rebuild NixOS
 sudo nixos-rebuild switch --flake .#ZB-UX391F
 
 # Update Home Manager
 home-manager switch --flake .#tatpow
 ```
 
-### Garbage collection
-
-Garbage collection runs automatically weekly and removes generations older than 30 days.
+## Update Flake Inputs
 
 ```bash
-# Manual garbage collection
-sudo nix-collect-garbage -d
+# Update all inputs
+nix flake update
+
+# Update specific input
+nix flake update nixpkgs
+nix flake update stylix
 ```
 
-## Laptop-Specific Settings
+## Rollback
 
-### Intel i915 PSR Issue
+```bash
+# Rollback to previous generation
+sudo nixos-rebuild switch --rollback
 
-If you experience screen freezing on Intel GPUs, add `i915.enable_psr=0` to kernel parameters.
+# List generations
+nixos-rebuild list-generations
 
-**Temporary (at boot):**
-1. At GRUB menu, press `e`
-2. Find the line starting with `linux`
-3. Add `i915.enable_psr=0` before `quiet` or at the end
-4. Press `Ctrl+X` to boot
+# Switch to specific generation
+sudo nix-env --switch-generation 1
+sudo nixos-rebuild switch
+```
 
-**Permanent:** Already configured in `nixos/modules/i915.nix`
+## Garbage Collection
+
+```bash
+# Manual GC (remove old generations)
+sudo nix-collect-garbage -d
+
+# Auto GC is configured (weekly, 30 days)
+```
 
 ## Features
 
-- 📦 **Flakes** - Reproducible builds
-- 💾 **Disko** - Automatic disk partitioning
-- 🏠 **Home Manager** - User environment management
-- 🎨 **Stylix** - Automatic theming (Dracula theme)
-- 🗑️ **Auto GC** - Weekly garbage collection
-- 📶 **NetworkManager** - WiFi management
-- 🐧 **Latest kernel** - Using linuxPackages_latest
+| Feature | Description |
+|---------|-------------|
+| 📦 **Flakes** | Reproducible builds |
+| 💾 **Disko** | Automatic disk partitioning |
+| 🏠 **Home Manager** | User environment management |
+| 🎨 **Stylix** | Dracula theme auto-configuration |
+| 🪟 **Hyprland** | Wayland compositor |
+| 🔐 **GDM** | Graphical login screen |
+| 🔒 **hyprlock** | Screen locker |
+| 🗑️ **Auto GC** | Weekly garbage collection |
+| 📶 **NetworkManager** | WiFi management |
+| 🐧 **Latest Kernel** | linuxPackages_latest |
+
+## Default Keybindings
+
+| Key | Action |
+|-----|--------|
+| `SUPER + RETURN` | Open terminal |
+| `SUPER + Q` | Close window |
+| `SUPER + F` | Toggle floating |
+| `SUPER + D` | App launcher (wofi) |
+| `SUPER + L` | Lock screen |
+| `SUPER + SHIFT + Q` | Exit Hyprland |
+| `SUPER + 1-9` | Switch workspace |
+| `SUPER + SHIFT + 1-9` | Move window to workspace |
+| `SUPER + Mouse Drag` | Move/resize window |
 
 ## Configuration Reference
 
 | File | Purpose |
 |------|---------|
-| `flake.nix` | Main entry point, defines inputs and outputs |
+| `flake.nix` | Main entry point, inputs/outputs |
 | `disko.nix` | Disk layout (ESP, swap, root) |
 | `nixos/configuration.nix` | Hostname, stateVersion |
 | `nixos/packages.nix` | System-wide packages |
-| `home-manager/home-packages.nix` | User packages (fastfetch) |
+| `nixos/modules/hyprland.nix` | Hyprland + GDM |
+| `home-manager/home-packages.nix` | User packages |
 | `home-manager/modules/stylix.nix` | Theming, fonts, icons |
+| `home-manager/modules/hyprland.nix` | WM keybindings |
+| `home-manager/modules/alacritty.nix` | Terminal config |
 
 ## Troubleshooting
 
-### WiFi not working
-
+### WiFi Not Working
 ```bash
-# Check NetworkManager status
 systemctl status NetworkManager
-
-# Check WiFi adapter
-ip link show
-
-# Unblock WiFi
-rfkill unblock all
-
-# List available networks
 nmcli device wifi list
+rfkill unblock all
 ```
 
-### Disko fails
-
+### Disko Fails
 ```bash
-# Check disk name
-lsblk
-
-# Update disko.nix with correct device name
-# device = "/dev/nvme0n1"  # Change this
+lsblk  # Check disk name
+# Update disko.nix device path
 ```
 
-### Home Manager command not found
-
+### Home Manager Not Found
 ```bash
-# Use nix run instead
 nix run home-manager -- switch --flake .#tatpow
+```
+
+### Hyprland Not Starting
+```bash
+# Check if GDM is running
+systemctl status display-manager
+
+# Check Hyprland
+hyprland --version
+```
+
+### Black Screen After GDM
+```bash
+# Try TTY (Ctrl+Alt+F2)
+# Check logs
+journalctl -b -u display-manager
+```
+
+## Hardware Requirements
+
+- **UEFI system** (for systemd-boot)
+- **Disk**: NVMe/SSD (update `disko.nix` device path)
+- **GPU**: Intel i915 supported (PSR disabled)
+- **RAM**: 8GB+ recommended
+
+## Post-Installation
+
+### Verify Installation
+```bash
+hostname        # ZB-UX391F
+whoami          # tatpow
+lsblk           # Check partitions
+fastfetch       # System info
+```
+
+### Test Components
+```bash
+# Terminal
+alacritty
+
+# Editor
+micro
+
+# Lock screen
+hyprlock
+
+# App launcher
+wofi --show drun
 ```
 
 ## License

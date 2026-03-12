@@ -3,10 +3,16 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+    micro
     pciutils
     usbutils
     inetutils
     git
-    micro
+    wofi
+    waybar
+    hyprlock
+    grim
+    slurp
+    wl-clipboard
   ];
 }

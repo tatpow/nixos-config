@@ -3,5 +3,7 @@
 
   home.packages = with pkgs; [
     fastfetch
+    cliphist
+    bemoji
   ];
 }
