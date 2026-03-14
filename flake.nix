@@ -34,7 +34,7 @@
 
         modules = [
           disko.nixosModules.disko
-          stylix.homeManagerModules.stylix
+          stylix.nixosModules.stylix
           ./disko.nix
           ./nixos/configuration.nix
         ];
