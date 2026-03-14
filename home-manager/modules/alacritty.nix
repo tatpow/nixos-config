@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -7,7 +7,7 @@
       font = {
         normal = {
           family = "JetBrains Mono";
-          style = "Bold";
+           style = lib.mkForce "Bold";
         };
         size = 13.0;
       };

@@ -34,8 +34,10 @@
 
         modules = [
           disko.nixosModules.disko
+          home-manager.nixosModules.default
           ./disko.nix
           ./nixos/configuration.nix
+          ./home-manager/home.nix
         ];
       };
 

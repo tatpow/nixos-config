@@ -31,10 +31,10 @@
         "$mainMod, Q, killactive,"
         
         # Toggle floating
-        "$mainMod, F, togglefloating,"
+        # "$mainMod, F, togglefloating,"
         
         # App launcher
-        "$mainMod, D, exec, wofi --show drun"
+        # "$mainMod, D, exec, wofi --show drun"
         
         # Exit Hyprland
         "$mainMod SHIFT, Q, exit,"
