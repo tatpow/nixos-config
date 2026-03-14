@@ -1,6 +1,4 @@
 { pkgs, inputs, ... }: {
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
-
   home.packages = with pkgs; [
     dejavu_fonts
     jetbrains-mono
@@ -17,8 +15,6 @@
     enable = true;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
-
-    # targets = { };
 
     cursor = {
       name = "DMZ-Black";

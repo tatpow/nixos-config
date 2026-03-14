@@ -5,5 +5,7 @@
     fastfetch
     cliphist
     bemoji
+    micro
+    hyprlock
   ];
 }

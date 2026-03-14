@@ -10,5 +10,6 @@
     ./user.nix
     ./env.nix
     ./hyprland.nix
+    ./home-manager.nix
   ];
 }

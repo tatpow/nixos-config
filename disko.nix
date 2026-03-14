@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme0n1";  # Change to your disk name (use lsblk to find it)
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {

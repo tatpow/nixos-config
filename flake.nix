@@ -34,22 +34,9 @@
 
         modules = [
           disko.nixosModules.disko
-          home-manager.nixosModules.default
+          stylix.homeManagerModules.stylix
           ./disko.nix
           ./nixos/configuration.nix
-          ./home-manager/home.nix
-        ];
-      };
-
-      homeConfigurations.tatpow = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-
-        modules = [
-          ./home-manager/home.nix
         ];
       };
     };
