@@ -4,9 +4,9 @@
     ./modules
   ];
 
-  home-manager.users.tatpow = {
-    home.username = "tatpow";
-    home.homeDirectory = "/home/tatpow";
-    home.stateVersion = "25.11";
+  home = {
+    username = "tatpow";
+    homeDirectory = "/home/tatpow";
+    stateVersion = "25.11";
   };
 }
