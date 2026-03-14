@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }: {
   imports = [
+    inputs.stylix.homeModules.stylix
     ./home-packages.nix
     ./modules
   ];
