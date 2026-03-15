@@ -2,28 +2,13 @@
   wayland.windowManager.hyprland.settings = {
       # Key bindings
       bind = [
-        # Terminal
-        "$mainMod, RETURN, exec, $terminal"
-        
-        # Close window
-        "$mainMod, Q, killactive"
-        
-        # Toggle floating
-        # "$mainMod, F, togglefloating,"
-        
-        # App launcher
-        # "$mainMod, D, exec, wofi --show drun"
-        
-        # Exit Hyprland
-        "$mainMod SHIFT, Q, exit"
-        
-        # Screen lock
-        "$mainMod, L, exec, hyprlock"
-        "$mainMod, D, exec, $menu --show drun"
-        "$mainMod, P, pin,"
-        "$mainMod, J, togglesplit,"
-        "$mainMod, E, exec, bemoji -cn"
 
+        # Base binds
+        "$mainMod, RETURN, exec, $terminal"
+        "$mainMod, Q, killactive"
+        "$mainMod SHIFT, Q, exit"
+        "$mainMod, L, exec, hyprlock"
+        "$mainMod, D, exec, $menu --show run"
         "$mainMod, F, togglefloating"
         "$mainMod SHIFT, F, fullscreen"
 
