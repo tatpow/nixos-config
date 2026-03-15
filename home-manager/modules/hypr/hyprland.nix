@@ -22,7 +22,7 @@
       "$terminal" = "alacritty";
             
       #"$fileManager" = "$terminal -e sh -c 'ranger'";
-      #"$menu" = "wofi";
+      "$menu" = "wofi";
 
 
       exec-once = [
