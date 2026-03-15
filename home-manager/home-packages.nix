@@ -6,5 +6,7 @@
     micro
     hyprlock
     brightnessctl
+
+    wev
   ];
 }
