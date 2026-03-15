@@ -20,7 +20,6 @@
         # Screen lock
         "$mainMod, L, exec, hyprlock"
 
-
         # Moving focus
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
@@ -38,7 +37,7 @@
         "$mainMod CTRL, right, resizeactive,  60 0"
         "$mainMod CTRL, up,    resizeactive,  0 -60"
         "$mainMod CTRL, down,  resizeactive,  0  60"
-        
+
         # Switching workspaces
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -68,6 +67,24 @@
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
+      ];
+
+      # Laptop multimedia keys for volume and LCD brightness
+      bindel = [
+        ",XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        "$mainMod, bracketright, exec, brightnessctl s 10%+"
+        "$mainMod, bracketleft,  exec, brightnessctl s 10%-"
+      ];
+
+      # Audio playback
+      bindl = [
+        ", XF86AudioNext,  exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay,  exec, playerctl play-pause"
+        ", XF86AudioPrev,  exec, playerctl previous"
       ];
   };
 }

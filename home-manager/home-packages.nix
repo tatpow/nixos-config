@@ -5,5 +5,6 @@
     bemoji
     micro
     hyprlock
+    brightnessctl
   ];
 }
