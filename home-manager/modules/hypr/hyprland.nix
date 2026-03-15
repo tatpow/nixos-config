@@ -33,7 +33,9 @@
       
       # Gestures
 
-      "gesture[f]" = "3, horizontal, workspace";
+      gesture = [
+        "3, horizontal, workspace"
+      ];
 
       # Window layout
       general = {
