@@ -31,6 +31,10 @@
         #"wl-paste --type image --watch cliphist store"
       ];
       
+      # Gestures
+
+      "gesture[f]" = "3, horizontal, workspace";
+
       # Window layout
       general = {
         resize_on_border = true;
@@ -62,11 +66,8 @@
         follow_mouse = 0;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 3;
-        workspace_swipe_invert = false;
-        workspace_swipe_forever = true;
+      cursor = {
+        no_warps = true;
       };
 
       dwindle = {

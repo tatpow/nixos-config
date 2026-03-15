@@ -20,6 +20,8 @@
         # Screen lock
         "$mainMod, L, exec, hyprlock"
 
+        "$mainMod, F, togglefloating,"
+
         # Moving focus
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
