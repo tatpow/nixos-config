@@ -5,5 +5,6 @@
     bemoji
     hyprlock
     brightnessctl
+    wofi
   ];
 }

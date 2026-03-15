@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./wofi
     ./vscode.nix
+
     ./hypr
   ];
 }
