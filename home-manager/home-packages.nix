@@ -6,5 +6,6 @@
     hyprlock
     brightnessctl
     wofi
+    vscode
   ];
 }

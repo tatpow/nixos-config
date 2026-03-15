@@ -18,7 +18,6 @@
 
     targets = {
       vscode.enable = false;
-      hyprlock.enable = false;
     };
 
     cursor = {
