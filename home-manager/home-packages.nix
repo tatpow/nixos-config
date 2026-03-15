@@ -3,10 +3,7 @@
     fastfetch
     cliphist
     bemoji
-    micro
     hyprlock
     brightnessctl
-
-    wev
   ];
 }
