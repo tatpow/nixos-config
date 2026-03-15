@@ -63,7 +63,8 @@
       };
 
       gestures = {
-        workspace_swipe_enabled = true;
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
         workspace_swipe_invert = false;
         workspace_swipe_forever = true;
       };
