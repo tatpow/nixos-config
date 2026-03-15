@@ -8,7 +8,7 @@
         "$mainMod, Q, killactive"
         "$mainMod SHIFT, Q, exit"
         "$mainMod, L, exec, hyprlock"
-        "$mainMod, D, exec, $menu --show run"
+        "$mainMod, D, exec, $menu --show drun"
         "$mainMod, F, togglefloating"
         "$mainMod SHIFT, F, fullscreen"
 

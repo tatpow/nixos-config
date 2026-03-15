@@ -2,6 +2,8 @@
   programs.vscode = {
     enable = true;
 
+    package = pkgs.vscode;
+
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       pkief.material-icon-theme
@@ -69,6 +71,26 @@
       "editor.wordWrap" = "on";
       "workbench.editor.empty.hint" = "hidden";
       "javascript.updateImportsOnFileMove.enabled" = "always";
+    };
+  };
+
+  xdg.desktopEntries = {
+    vscode = {
+      name = "Visual Studio Code";
+      comment = "Code Editing. Redefined.";
+      genericName = "Text Editor";
+      exec = "code %F";
+      icon = "code";
+      type = "Application";
+      categories = [ "Development" "TextEditor" "Utility" ];
+      keywords = [ "vscode" "code" "editor" ];
+      startupNotify = true;
+      startupWMClass = "code";
+      mimeType = [
+        "text/plain"
+        "inode/directory"
+        "application/x-code-workspace"
+      ];
     };
   };
 }
