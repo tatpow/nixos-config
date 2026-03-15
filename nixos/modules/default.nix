@@ -1,16 +1,19 @@
 {
   imports = [
     ./audio.nix
+    ./bluetooth.nix
     ./boot.nix
+    ./env.nix
     ./gc.nix
+    ./home-manager.nix
+    ./hyprland.nix
     ./i915.nix
     ./kernel.nix
     ./net.nix
+    ./nh.nix
     ./nix.nix
     ./timezone.nix
     ./user.nix
-    ./env.nix
-    ./hyprland.nix
-    ./home-manager.nix
+    ./zram.nix
   ];
 }
