@@ -4,7 +4,7 @@
 
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
-      material-icon-theme
+      pkief.material-icon-theme
       jnoortheen.nix-ide
     ];
 
