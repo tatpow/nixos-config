@@ -21,7 +21,7 @@
         "$mainMod, L, exec, hyprlock"
 
         "$mainMod, F, togglefloating"
-        "$mainMod SHIFT, F, fullscreen, 1"
+        "$mainMod SHIFT, F, fullscreen"
 
         # Moving focus
         "$mainMod, left, movefocus, l"
