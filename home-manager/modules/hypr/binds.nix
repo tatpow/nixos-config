@@ -6,7 +6,7 @@
         "$mainMod, RETURN, exec, $terminal"
         
         # Close window
-        "$mainMod, Q, killactive,"
+        "$mainMod, Q, killactive"
         
         # Toggle floating
         # "$mainMod, F, togglefloating,"
@@ -15,12 +15,13 @@
         # "$mainMod, D, exec, wofi --show drun"
         
         # Exit Hyprland
-        "$mainMod SHIFT, Q, exit,"
+        "$mainMod SHIFT, Q, exit"
         
         # Screen lock
         "$mainMod, L, exec, hyprlock"
 
-        "$mainMod, F, togglefloating,"
+        "$mainMod, F, togglefloating"
+        "$mainMod SHIFT, F, fullscreen, 1"
 
         # Moving focus
         "$mainMod, left, movefocus, l"

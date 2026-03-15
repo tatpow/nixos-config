@@ -35,6 +35,7 @@
 
       gesture = [
         "3, horizontal, workspace"
+        "2, pinch, mod: SUPER, fullscreen"
       ];
 
       # Window layout
