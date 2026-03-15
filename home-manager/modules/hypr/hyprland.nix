@@ -34,8 +34,6 @@
       # Window layout
       general = {
         resize_on_border = true;
-        
-        follow_mouse = false;
         layout = "master";
       };
 
@@ -61,12 +59,13 @@
       input = {
         kb_layout = "us,ru";
         kb_options = "grp:caps_toggle";
+        follow_mouse = 0;
       };
 
       gestures = {
-        workspace_swipe = true;
+        workspace_swipe_enabled = true;
         workspace_swipe_invert = false;
-        workspace_swipe_forever	= true;
+        workspace_swipe_forever = true;
       };
 
       dwindle = {
