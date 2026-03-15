@@ -75,7 +75,7 @@
   };
 
   xdg.desktopEntries = {
-    vscode = {
+    code = {
       name = "Visual Studio Code";
       comment = "Code Editing. Redefined.";
       genericName = "Text Editor";
@@ -83,14 +83,16 @@
       icon = "code";
       type = "Application";
       categories = [ "Development" "TextEditor" "Utility" ];
-      keywords = [ "vscode" "code" "editor" ];
-      startupNotify = true;
-      startupWMClass = "code";
       mimeType = [
         "text/plain"
         "inode/directory"
         "application/x-code-workspace"
       ];
+      settings = {
+        Keywords = "vscode;code;editor";
+        StartupNotify = "true";
+        StartupWMClass = "code";
+      };
     };
   };
 }
