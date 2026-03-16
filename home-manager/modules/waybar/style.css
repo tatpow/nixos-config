@@ -37,3 +37,13 @@ window#waybar {
   background: #44475a;
   color: #f8f8f2;
 }
+
+#network,
+#pulseaudio,
+#battery,
+#backlight,
+#clock,
+#tray {
+  margin: 0 10px;
+  padding: 0 5px;
+}
