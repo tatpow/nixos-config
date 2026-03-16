@@ -12,6 +12,9 @@
         "$mainMod, F, togglefloating"
         "$mainMod SHIFT, F, fullscreen"
         "$mainMod,P, exec, hyprpicker -an"
+        "$mainMod, E, exec, bemoji -cn"
+        "$mainMod, J, togglesplit"
+        "$mainMod, V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
 
         # Moving focus
         "$mainMod, left, movefocus, l"
