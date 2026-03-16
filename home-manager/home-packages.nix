@@ -8,5 +8,6 @@
     wofi
     hyprpicker
     wl-clipboard
+    waybar
   ];
 }
