@@ -19,11 +19,12 @@ window#waybar {
 
 #workspaces {
   margin: 0 10px;
+  padding: 0 5px;
 }
 
 #workspaces button {
   padding: 0 10px;
-  font-size: 28px;
+  font-size: 20px;
   color: #6272a4;
 }
 

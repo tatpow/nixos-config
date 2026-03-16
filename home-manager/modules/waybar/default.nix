@@ -8,8 +8,16 @@
         position = "top";
         height = 45;
         modules-left = [ "custom/nixos" "hyprland/workspaces" ];
-        modules-center = [];
-        # modules-right = ["hyprland/language" "custom/weather" "pulseaudio" "battery" "clock" "tray"];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [
+          "hyprland/language"
+          "network"
+          "pulseaudio"
+          "battery"
+          "backlight"
+          "clock"
+          "tray"
+        ];
 
         "custom/nixos" = {
           format = "󱄅"; # \udb84\udd05 - nixos logo
@@ -23,70 +31,81 @@
             "*" = 10;
           };
           format-icons = {
-            "1" = "󰬺";
-            "2" = "󰬻";
-            "3" = "󰬼";
-            "4" = "󰬽";
-            "5" = "󰬾";
-            "6" = "󰬿";
-            "7" = "󰭀";
-            "8" = "󰭁";
-            "9" = "󰭂";
-            "10" = "󰿩";
+            "1" = "1";
+            "2" = "2";
+            "3" = "3";
+            "4" = "4";
+            "5" = "5";
+            "6" = "6";
+            "7" = "7";
+            "8" = "8";
+            "9" = "9";
+            "10" = "10";
           };
           on-click = "activate";
         };
 
-        # "hyprland/language" = {
-        #   format-en = "🇺🇸";
-        #   format-ru = "🇷🇺";
-        #   min-length = 5;
-        #   tooltip = false;
-        # };
+        "hyprland/language" = {
+          format-en = "🇺🇸";
+          format-ru = "🇷🇺";
+          min-length = 5;
+          tooltip = false;
+        };
 
-        # "custom/weather" = {
-        #   format = " {} ";
-        #   exec = "curl -s 'https://wttr.in/Moscow?format=%c%t'";
-        #   interval = 300;
-        #   class = "weather";
-        # };
+        "pulseaudio" = {
+          format = "{icon} {volume}%";
+          format-bluetooth = "{icon} {volume}% ";
+          format-muted = "";
+          format-icons = {
+            "headphones" = "";
+            "handsfree" = "";
+            "headset" = "";
+            "phone" = "";
+            "portable" = "";
+            "car" = "";
+            "default" = ["" ""];
+          };
+          on-click = "pavucontrol";
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
 
-        # "pulseaudio" = {
-        #   format = "{icon} {volume}%";
-        #   format-bluetooth = "{icon} {volume}% ";
-        #   format-muted = "";
-        #   format-icons = {
-        #     "headphones" = "";
-        #     "handsfree" = "";
-        #     "headset" = "";
-        #     "phone" = "";
-        #     "portable" = "";
-        #     "car" = "";
-        #     "default" = ["" ""];
-        #   };
-        #   on-click = "pavucontrol";
-        # };
+        "battery" = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-alt = "{time} {icon}";
+          format-icons = ["" "" "" "" ""];
+        };
 
-        # "battery" = {
-        #   states = {
-        #     warning = 30;
-        #     critical = 1;
-        #   };
-        #   format = "{icon} {capacity}%";
-        #   format-charging = " {capacity}%";
-        #   format-alt = "{time} {icon}";
-        #   format-icons = ["" "" "" "" ""];
-        # };
+        "backlight" = {
+          format = "{icon} {percent}%";
+          format-icons = ["" ""];
+          on-scroll-up = "brightnessctl set 5%+";
+          on-scroll-down = "brightnessctl set 5%-";
+        };
 
-        # "clock" = {
-        #   format = "{:%d.%m.%Y - %H:%M}";
-        #   format-alt = "{:%A, %B %d at %R}";
-        # };
+        "network" = {
+          format-wifi = " {signalStrength}%";
+          format-ethernet = " ";
+          format-disconnected = "";
+          tooltip-format = "{essid} ({signalStrength}%)";
+          tooltip-format-disconnected = "Disconnected";
+          on-click = "nm-connection-editor";
+        };
 
-        # "tray" = {
-        #   icon-size = 14;
-        #   spacing = 1;
-        # };
+        "clock" = {
+          format = "{:%d.%m.%Y - %H:%M}";
+          format-alt = "{:%A, %B %d at %R}";
+          on-click = "calendar";
+        };
+
+        "tray" = {
+          icon-size = 14;
+          spacing = 1;
+        };
       };
     };
   };

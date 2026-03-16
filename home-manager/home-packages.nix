@@ -9,5 +9,7 @@
     hyprpicker
     wl-clipboard
     waybar
+    pavucontrol       # GUI для управления звуком (PulseAudio)
+    networkmanagerapplet # GUI для NetworkManager (nm-connection-editor)
   ];
 }
