@@ -6,5 +6,7 @@
     hyprlock
     brightnessctl
     wofi
+    hyprpicker
+    wl-clipboard
   ];
 }

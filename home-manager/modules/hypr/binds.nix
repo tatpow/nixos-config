@@ -11,6 +11,7 @@
         "$mainMod, D, exec, $menu --show drun"
         "$mainMod, F, togglefloating"
         "$mainMod SHIFT, F, fullscreen"
+        "$mainMod,P, exec, hyprpicker -an"
 
         # Moving focus
         "$mainMod, left, movefocus, l"
