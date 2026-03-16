@@ -10,7 +10,8 @@
         modules-left = [ "custom/nixos" "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
-          "hyprland/language"
+          "hyprland/language" 
+          "bluetooth"
           "network"
           "pulseaudio"
           "battery"
@@ -50,6 +51,17 @@
           format-ru = "🇷🇺";
           min-length = 5;
           tooltip = false;
+        };
+
+        "bluetooth" = {
+          format = " {status}";
+          format-disabled = "";
+          format-off = "";
+          format-connected = " {device_enumerate}";
+          tooltip-format = " {device_enumerate}";
+          tooltip-format-connected = "{device_enumerate}\n  {device_address}  {device_alias}";
+          format-device = " {device_alias}";
+          on-click = "blueman-manager";
         };
 
         "pulseaudio" = {

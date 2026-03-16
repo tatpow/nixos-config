@@ -4,19 +4,14 @@
   font-family: "JetBrains Mono";
   font-size: 14px;
   min-height: 40px;
+  color: #f8f8f2;
 }
 
 window#waybar {
   background: #282a36;
-  color: #f8f8f2;
 }
 
-#custom-nixos {
-  font-size: 32px;
-  margin: 0;
-  padding: 0 30px;
-}
-
+/* Workspace Buttons */
 #workspaces {
   margin: 0 10px;
   padding: 0 5px;
@@ -38,12 +33,58 @@ window#waybar {
   color: #f8f8f2;
 }
 
-#network,
-#pulseaudio,
-#battery,
-#backlight,
-#clock,
+/* Modules */
+#bluetooth {
+  margin: 0 10px;
+  color: #8be9fd;
+}
+
+#network {
+  margin: 0 10px;
+  color: #50fa7b;
+}
+
+#pulseaudio {
+  margin: 0 10px;
+  color: #ffb86c;
+}
+
+#pulseaudio.muted {
+  color: #ff5555;
+}
+
+#battery {
+  margin: 0 10px;
+  color: #8be9fd;
+}
+
+#battery.warning {
+  color: #ffb86c;
+}
+
+#battery.critical {
+  color: #ff5555;
+}
+
+#backlight {
+  margin: 0 10px;
+  color: #f1fa8c;
+}
+
+#clock {
+  margin: 0 10px;
+  color: #bd93f9;
+}
+
 #tray {
   margin: 0 10px;
-  padding: 0 5px;
+}
+
+#window {
+  margin: 0 10px;
+}
+
+#language {
+  margin: 0 10px;
+  color: #f8f8f2;
 }
