@@ -3,7 +3,7 @@
   border-radius: 0;
   font-family: "JetBrains Mono";
   font-size: 14px;
-  min-height: 0;
+  min-height: 40px;
 }
 
 window#waybar {
@@ -18,12 +18,12 @@ window#waybar {
 }
 
 #workspaces {
-  font-size: 36px;
-  padding: 0 5px;
+  margin: 0 10px;
 }
 
 #workspaces button {
   padding: 0 10px;
+  font-size: 28px;
   color: #6272a4;
 }
 

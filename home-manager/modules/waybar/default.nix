@@ -6,7 +6,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 32;
+        height = 45;
         modules-left = [ "custom/nixos" "hyprland/workspaces" ];
         modules-center = [];
         # modules-right = ["hyprland/language" "custom/weather" "pulseaudio" "battery" "clock" "tray"];
