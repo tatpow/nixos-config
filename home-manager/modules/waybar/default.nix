@@ -6,9 +6,9 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 32;
         modules-left = [ "custom/nixos" ];
-        # modules-center = ["hyprland/window"];
+        modules-center = [ "hyprland/workspaces" ];
         # modules-right = ["hyprland/language" "custom/weather" "pulseaudio" "battery" "clock" "tray"];
 
         "custom/nixos" = {
@@ -16,29 +16,28 @@
           tooltip = false;
         };
 
-        # "hyprland/workspaces" = {
-        #   disable-scroll = true;
-        #   show-special = true;
-        #   special-visible-only = true;
-        #   all-outputs = false;
-        #   format = "{icon}";
-        #   format-icons = {
-        #     "1" = "";
-        #     "2" = "";
-        #     "3" = "";
-        #     "4" = "";
-        #     "5" = "";
-        #     "6" = "";
-        #     "7" = "";
-        #     "8" = "";
-        #     "9" = "";
-        #     "magic" = "";
-        #   };
-
-        #   persistent-workspaces = {
-        #     "*" = 9;
-        #   };
-        # };
+        "hyprland/workspaces" = {
+          format = "{icon}";
+          all-outputs = true;
+          persistent-workspaces = {
+            "*" = 10;
+          };
+          format-icons = {
+            "1" = "󰎹";
+            "2" = "󰎺";
+            "3" = "󰎻";
+            "4" = "󰎼";
+            "5" = "󰎽";
+            "6" = "󰎾";
+            "7" = "󰎿";
+            "8" = "󰏀";
+            "9" = "󰏁";
+            "10" = "󰏂";
+            "active" = "󰎯";
+            "default" = "󰇄";
+          };
+          on-click = "activate";
+        };
 
         # "hyprland/language" = {
         #   format-en = "🇺🇸";
