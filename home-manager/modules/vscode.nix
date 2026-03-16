@@ -12,7 +12,8 @@
 
     userSettings = {
       "workbench.colorTheme" = "Dracula Theme";
-      "editor.fontFamily" = "'JetBrains Mono', 'bold', bold";
+      # "editor.fontFamily" = "'JetBrains Mono', 'bold', bold";
+      "editor.fontFamily" = "'Symbols Nerd Font', 'JetBrains Mono'";
       "editor.fontSize" = 16;
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.tree.indent" = 14;

@@ -34,18 +34,24 @@ window#waybar {
 }
 
 /* Modules */
+#custom-nixos {
+  font-size: 28px;
+  margin: 0;
+  padding: 0 15px;
+}
+
 #bluetooth {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #8be9fd;
 }
 
 #network {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #50fa7b;
 }
 
 #pulseaudio {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #ffb86c;
 }
 
@@ -54,7 +60,7 @@ window#waybar {
 }
 
 #battery {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #8be9fd;
 }
 
@@ -67,24 +73,24 @@ window#waybar {
 }
 
 #backlight {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #f1fa8c;
 }
 
 #clock {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #bd93f9;
 }
 
 #tray {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 #window {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 #language {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #f8f8f2;
 }
