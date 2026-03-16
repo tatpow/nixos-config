@@ -20,7 +20,6 @@
       # Variables
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
-            
       #"$fileManager" = "$terminal -e sh -c 'ranger'";
       "$menu" = "wofi";
 
@@ -32,7 +31,6 @@
       ];
       
       # Gestures
-
       gesture = [
         "3, horizontal, workspace"
         "2, pinch, mod: SUPER, fullscreen"
