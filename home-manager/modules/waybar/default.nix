@@ -7,12 +7,12 @@
         layer = "top";
         position = "top";
         height = 32;
-        modules-left = [ "custom/nixos" ];
-        modules-center = [ "hyprland/workspaces" ];
+        modules-left = [ "custom/nixos" "hyprland/workspaces" ];
+        modules-center = [];
         # modules-right = ["hyprland/language" "custom/weather" "pulseaudio" "battery" "clock" "tray"];
 
         "custom/nixos" = {
-          format = "󱄅"; # \udb84\udd05
+          format = "󱄅"; # \udb84\udd05 - nixos logo
           tooltip = false;
         };
 
@@ -23,18 +23,16 @@
             "*" = 10;
           };
           format-icons = {
-            "1" = "󰎹";
-            "2" = "󰎺";
-            "3" = "󰎻";
-            "4" = "󰎼";
-            "5" = "󰎽";
-            "6" = "󰎾";
-            "7" = "󰎿";
-            "8" = "󰏀";
-            "9" = "󰏁";
-            "10" = "󰏂";
-            "active" = "󰎯";
-            "default" = "󰇄";
+            "1" = "󰬺";
+            "2" = "󰬻";
+            "3" = "󰬼";
+            "4" = "󰬽";
+            "5" = "󰬾";
+            "6" = "󰬿";
+            "7" = "󰭀";
+            "8" = "󰭁";
+            "9" = "󰭂";
+            "10" = "󰿩";
           };
           on-click = "activate";
         };
