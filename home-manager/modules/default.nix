@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./vscode.nix
     ./swaync.nix
+    ./chromium.nix
   
     ./hypr
     ./waybar

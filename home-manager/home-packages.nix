@@ -1,17 +1,36 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    fastfetch
-    cliphist
+    # CLI utils
     bemoji
-    hyprlock
     brightnessctl
-    wofi
+    cliphist
+    fastfetch
+    grimblast
     hyprpicker
+    playerctl
+    udisks
+    wget
     wl-clipboard
-    waybar
-    pavucontrol
-    networkmanagerapplet
+
+    # Desktop apps
     blueman
+    imv
+    mpv
+    networkmanagerapplet
+    pavucontrol
     swaynotificationcenter
+
+    # WM stuff
+    hyprlock
+    waybar
+    wofi
+
+    # Other
+    ffmpeg
+    ffmpegthumbnailer
+    ntfs3g
+
+    # Personal programs
+    
   ];
 }

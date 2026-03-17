@@ -15,6 +15,7 @@
         "$mainMod, E, exec, bemoji -cn"
         "$mainMod, V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
         "$mainMod, N, exec, swaync-client -t"
+        ", Print, exec, grimblast --notify --freeze copysave area"
 
         # Moving focus
         "$mainMod, left, movefocus, l"
