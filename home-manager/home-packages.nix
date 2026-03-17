@@ -32,7 +32,6 @@
 
     # Personal programs
     obsidian
-    synology-drive-client
     yandex-music
     bitwarden-desktop
     telegram-desktop
