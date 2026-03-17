@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   synology-fixed = pkgs.synology-drive.overrideAttrs (old: {
@@ -10,7 +10,7 @@ let
   });
 in
 {
-  environment.systemPackages = [
+  home.packages = [
     synology-fixed
   ];
 }
