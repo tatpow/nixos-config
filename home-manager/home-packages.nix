@@ -32,10 +32,10 @@
 
     # Personal programs
     obsidian
-    #synology-drive-client
+    synology-drive-client
     yandex-music
     bitwarden-desktop
-    #telegram-desktop
+    telegram-desktop
     vesktop
     unityhub
     opentabletdriver
