@@ -11,6 +11,7 @@
     waybar
     pavucontrol
     networkmanagerapplet
-    blueman  # Bluetooth менеджер
+    blueman
+    swaync
   ];
 }
