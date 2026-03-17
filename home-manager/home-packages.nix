@@ -12,6 +12,6 @@
     pavucontrol
     networkmanagerapplet
     blueman
-    swaync
+    swaynotificationcenter
   ];
 }
