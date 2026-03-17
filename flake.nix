@@ -39,8 +39,26 @@
         modules = [
           disko.nixosModules.disko
           stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+
           ./disko.nix
           ./nixos/configuration.nix
+
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs pkgs-unstable;
+            };
+            home-manager.users.tatpow = {
+              imports = [
+                inputs.stylix.homeModules.stylix
+                ../home-manager/home.nix
+                ../home-manager/home-packages.nix
+                ../home-manager/modules
+              ];
+            };
+          }
         ];
       };
     };
