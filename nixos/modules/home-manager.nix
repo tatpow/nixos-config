@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, pkgs-unstable, ... }: {
   imports = [ inputs.home-manager.nixosModules.default ];
 
   home-manager = {
@@ -6,7 +6,7 @@
     useUserPackages = true;
     backupFileExtension = "backup";
     extraSpecialArgs = { 
-      inherit inputs; 
+      inherit inputs pkgs-unstable; 
     };
     users.tatpow = import ../../home-manager/home.nix;
   };
