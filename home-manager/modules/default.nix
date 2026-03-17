@@ -4,7 +4,7 @@
     ./alacritty.nix
     ./vscode.nix
     ./swaync.nix
-    ./gui-apps.nix
+    ./synology.nix
     # ./chromium.nix
 
     ./hypr
