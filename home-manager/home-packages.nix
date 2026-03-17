@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # CLI utils
     bemoji
@@ -43,6 +43,6 @@
     gimp
 
     # Browser (unstable)
-    pkgs-unstable.google-chrome
+    
   ];
 }
