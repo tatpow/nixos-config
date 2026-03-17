@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,9 +22,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, disko, home-manager, stylix, ... }@inputs:
     let
       system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true; };
     in
     {
       nixosConfigurations.ZB-UX391F = nixpkgs.lib.nixosSystem {
@@ -30,6 +33,7 @@
 
         specialArgs = {
           inherit inputs;
+          inherit pkgs-unstable;
         };
 
         modules = [

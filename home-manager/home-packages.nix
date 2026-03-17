@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-unstable, ... }: {
   home.packages = with pkgs; [
     # CLI utils
     bemoji
@@ -31,6 +31,18 @@
     ntfs3g
 
     # Personal programs
-    
+    obsidian
+    synology-drive-client
+    yandex-music
+    bitwarden-desktop
+    telegram-desktop
+    vesktop
+    unityhub
+    opentabletdriver
+    krita
+    gimp
+
+    # Browser (unstable)
+    pkgs-unstable.google-chrome
   ];
 }
