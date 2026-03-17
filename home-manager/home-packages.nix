@@ -43,6 +43,6 @@
     gimp
 
     # Browser (unstable)
-    
+    pkgs-unstable.google-chrome
   ];
 }
