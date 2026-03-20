@@ -3,7 +3,5 @@
 
   environment.systemPackages = with pkgs; [
     git
-    # xray
-    # sing-box
   ];
 }

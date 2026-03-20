@@ -19,6 +19,9 @@
     networkmanagerapplet
     pavucontrol
     swaynotificationcenter
+    
+    networkmanager_dmenu
+    pantheon.elementary-capnet-assist
 
     # WM stuff
     hyprlock
