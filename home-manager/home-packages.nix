@@ -46,5 +46,7 @@
 
     # Browser (unstable)
     pkgs-unstable.google-chrome
+
+    # Buildin packages
   ];
 }
