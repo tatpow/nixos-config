@@ -11,6 +11,8 @@
     ];
 
     userSettings = {
+      "chat.disableAIFeatures" = true;
+      "http.systemCertificatesNode" = true;
       "workbench.colorTheme" = "Dracula Theme";
       "editor.fontFamily" = "'Symbols Nerd Font', 'JetBrains Mono'";
       "editor.fontSize" = 16;
