@@ -12,6 +12,7 @@
     ./net.nix
     ./nh.nix
     ./nix.nix
+    ./otd.nix
     ./throne.nix
     ./timezone.nix
     ./user.nix
