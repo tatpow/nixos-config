@@ -31,6 +31,8 @@ nixos-config/
 │       ├── net.nix            # NetworkManager
 │       ├── nh.nix             # nh (Nix helper)
 │       ├── nix.nix            # Nix settings (flakes)
+│       ├── otd.nix            # OpenTabletDriver configuration
+│       ├── throne.nix         # Throne keyboard configurator
 │       ├── timezone.nix       # Timezone (Europe/Moscow)
 │       ├── user.nix           # User configuration (tatpow)
 │       └── zram.nix           # Zram swap (lz4)
@@ -41,6 +43,7 @@ nixos-config/
         ├── default.nix        # Module imports
         ├── alacritty.nix      # Terminal emulator
         ├── chromium.nix       # Chromium + extensions (disabled)
+        ├── git.nix            # Git configuration
         ├── stylix.nix         # Theming (Dracula)
         ├── swaync.nix         # Notification daemon
         ├── synology.nix       # Synology Drive Client
@@ -55,7 +58,7 @@ nixos-config/
         │   └── style.css      # Waybar styles
         └── wofi/
             ├── default.nix    # Wofi configuration
-            └── style.css      # Wofi styles (empty)
+            └── style.css      # Wofi styles
 ```
 
 ## Installation
@@ -111,8 +114,8 @@ reboot
 | 🪟 **Hyprland** | Wayland compositor (master layout) |
 | 🔐 **GDM** | Graphical login screen |
 | 🔒 **hyprlock** | Screen locker |
-| � **hypridle** | Idle daemon (sleep, dim, lock) |
-| �🗑️ **Auto GC** | Weekly garbage collection (30d) |
+|  **hypridle** | Idle daemon (sleep, dim, lock) |
+| 🗑️ **Auto GC** | Weekly garbage collection (30d) |
 | 📶 **NetworkManager** | WiFi management |
 | 🐧 **Latest Kernel** | linuxPackages_latest |
 | ⌨️ **Keyboard** | US/RU layout (Caps toggle) |
@@ -146,103 +149,8 @@ reboot
 | `SUPER + 1-0` | Switch workspace |
 | `SUPER + SHIFT + 1-0` | Move window to workspace |
 | `SUPER + Mouse Drag` | Move/resize window |
-| `XF86Audio*` | Volume / Playback control |
-| `XF86MonBrightness*` | Screen brightness |
-
-## Configuration Reference
-
-| File | Purpose |
-|------|---------|
-| `flake.nix` | Main entry point, inputs/outputs (nixos-25.11) |
-| `disko.nix` | Disk layout (NVMe, ESP 256M, swap 8G, ext4 root) |
-| `nixos/configuration.nix` | Hostname (ZB-UX391F), stateVersion |
-| `nixos/packages.nix` | System-wide packages (git) |
-| `nixos/modules/default.nix` | Module imports |
-| `nixos/modules/audio.nix` | PipeWire (ALSA, Pulse) |
-| `nixos/modules/bluetooth.nix` | Bluetooth + Blueman |
-| `nixos/modules/boot.nix` | systemd-boot, kernel params, watchdog |
-| `nixos/modules/env.nix` | EDITOR, TERMINAL variables |
-| `nixos/modules/gc.nix` | Auto GC (weekly, 30d) |
-| `nixos/modules/home-manager.nix` | HM integration |
-| `nixos/modules/hyprland.nix` | Hyprland + GDM + hyprlock + portals |
-| `nixos/modules/i915.nix` | Intel GPU (PSR disabled) |
-| `nixos/modules/kernel.nix` | Latest kernel |
-| `nixos/modules/net.nix` | NetworkManager |
-| `nixos/modules/nh.nix` | nh (Nix helper) |
-| `nixos/modules/nix.nix` | Flakes enabled |
-| `nixos/modules/timezone.nix` | Europe/Moscow |
-| `nixos/modules/user.nix` | User tatpow (wheel, networkmanager, input) |
-| `nixos/modules/zram.nix` | Zram swap (lz4, 100%) |
-| `home-manager/home.nix` | HM entry point |
-| `home-manager/home-packages.nix` | User packages (fastfetch, hyprlock, waybar, wofi, apps) |
-| `home-manager/modules/default.nix` | Module imports |
-| `home-manager/modules/stylix.nix` | Dracula theme, fonts, icons, wallpaper |
-| `home-manager/modules/alacritty.nix` | Terminal (bold font) |
-| `home-manager/modules/chromium.nix` | Chromium + extensions (disabled) |
-| `home-manager/modules/swaync.nix` | Notification daemon |
-| `home-manager/modules/synology.nix` | Synology Drive Client |
-| `home-manager/modules/vscode.nix` | VS Code + extensions |
-| `home-manager/modules/hypr/default.nix` | Module imports |
-| `home-manager/modules/hypr/hyprland.nix` | WM settings (master layout, US/RU) |
-| `home-manager/modules/hypr/binds.nix` | Key bindings |
-| `home-manager/modules/hypr/hypridle.nix` | Idle daemon |
-| `home-manager/modules/waybar/default.nix` | Status bar |
-| `home-manager/modules/waybar/style.css` | Waybar styles (Dracula) |
-| `home-manager/modules/wofi/default.nix` | App launcher |
-| `home-manager/modules/wofi/style.css` | Wofi styles (empty) |
 
 ## Troubleshooting
-
-### WiFi Not Working
-```bash
-systemctl status NetworkManager
-nmcli device wifi list
-nmcli device wifi connect <SSID>
-rfkill unblock all
-```
-
-### Disko Fails
-```bash
-lsblk
-# Update device path in disko.nix if needed
-```
-
-### Hyprland Not Starting
-```bash
-systemctl status display-manager
-hyprland --version
-journalctl -u display-manager
-```
-
-### Audio Issues
-```bash
-systemctl --user status pipewire
-wpctl status
-pavucontrol
-```
-
-### Bluetooth Issues
-```bash
-systemctl status bluetooth
-blueman-manager
-```
-
-### Waybar Not Showing
-```bash
-waybar --check
-journalctl --user -u waybar
-```
-
-### Wofi Not Opening
-```bash
-wofi --show drun
-```
-
-### hypridle Not Working
-```bash
-hyprctl switches
-loginctl lock-session
-```
 
 ### Build Flake
 ```bash
