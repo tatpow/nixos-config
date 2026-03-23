@@ -102,7 +102,7 @@
           tooltip-format = "{signalStrength}%";
           tooltip-format-disconnected = "Disconnected";
           on-click = "nm-connection-editor";
-          on-click-right = "nix run github:cachebag/nmrs";
+          # on-click-right = "nmrs";
         };
 
         "clock" = {
